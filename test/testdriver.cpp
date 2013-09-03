@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Coord.h"
 #include "Distance.h"
 
 #include <CUnit/Basic.h>
@@ -7,8 +6,8 @@
 
 void test_Distance()
 {
-    Coord c1;
-    Coord c2;
+    Location c1;
+    Location c2;
 
     c1.latitudeDegrees = 38;
     c1.latitudeMinutes = 50;

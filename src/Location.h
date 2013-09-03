@@ -1,11 +1,11 @@
 
-#ifndef COORD_H
-#define COORD_H
+#ifndef LOCATION_H
+#define LOCATION_H
 
 /*
  * Represents a Latitude/Longitude location on the earth.
  */
-class Coord
+class Location
 {
 public:
     int latitudeDegrees;

@@ -9,7 +9,7 @@ SOURCES   = src
 TESTSOURCES = test
 
 #List of header files to install
-INCLUDES  = src/Coord.h \
+INCLUDES  = src/Location.h \
 						src/Distance.h \
 						src/Constants.h
 

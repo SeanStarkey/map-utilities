@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Constants.h"
 
-double distance(const Coord c1, const Coord c2)
+double distance(const Location c1, const Location c2)
 {
     double dLat = toRadians(c1.getLatitude() - c2.getLatitude());
     double dLon = toRadians(c1.getLongitude() - c2.getLongitude());
