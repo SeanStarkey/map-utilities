@@ -7,6 +7,6 @@
 /**
  * Computes the distance between two coordinates along a great circle.
  */
-double distance(const Location c1, const Location c2);
+double distance(const Location* c1, const Location* c2);
 
 #endif

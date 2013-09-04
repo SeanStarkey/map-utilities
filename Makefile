@@ -10,6 +10,8 @@ TESTSOURCES = test
 
 #List of header files to install
 INCLUDES  = src/Location.h \
+						src/LocationDeg.h \
+						src/LocationDegMinSec.h \
 						src/Distance.h \
 						src/Constants.h
 
@@ -60,7 +62,7 @@ $(TARGET): $(BUILD_DIR) $(OBJECTS)
 	$(AR) -rc $(TARGET) $(OBJECTS)
 
 $(TESTTARGET): $(TESTOBJECTS)
-	$(CXX) -o $(TESTTARGET) $? -l$(SHORTLIBNAME) -lcunit -lm -L$(libdir)
+	$(CXX) -o $(TESTTARGET) $? -l$(SHORTLIBNAME) -lcppunit -lcunit -lm -L$(libdir)
 
 # Compile C source to object code
 $(BUILD_DIR)/%.o: %.c

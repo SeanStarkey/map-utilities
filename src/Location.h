@@ -8,18 +8,8 @@
 class Location
 {
 public:
-    int latitudeDegrees;
-    int latitudeMinutes;
-    int latitudeSeconds;
-    bool northHemisphere;
-
-    int longitudeDegrees;
-    int longitudeMinutes;
-    int longitudeSeconds;
-    bool eastHemisphere;
-
-    double getLatitude() const;
-    double getLongitude() const;
+    virtual double getLatitude() const = 0;
+    virtual double getLongitude() const = 0;
 };
 
 #endif
