@@ -13,7 +13,16 @@ INCLUDES  = src/Location.h \
 						src/LocationDeg.h \
 						src/LocationDegMinSec.h \
 						src/Distance.h \
-						src/Constants.h
+						src/Constants.h \
+						src/KML.h \
+						src/KMLFolder.h \
+						src/KMLDocument.h \
+						src/KMLPlacemark.h \
+						src/KMLStyle.h \
+						src/KMLPoint.h \
+						src/KMLUnknownElementException.h \
+						src/pugixml.hpp \
+						src/pugiconfig.hpp
 
 # Library to create
 LIBNAME   = libmaputil.a
@@ -69,7 +78,7 @@ $(BUILD_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -I$(includedir) -c $< -o $@
 
 $(BUILD_DIR)/%.o: %.cpp
-	$(CXX) $(CPPFLAGS) -I$(includedir) -c $< -o $@
+	$(CXX) $(CPPFLAGS) --std=c++0x -I$(includedir) -c $< -o $@
 
 # Create the necessary directory tree for the build
 $(BUILD_DIR):

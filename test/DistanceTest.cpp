@@ -1,7 +1,6 @@
 
 #include <cppunit/TestAssert.h>
 
-
 #include "DistanceTest.h"
 
 #include "LocationDegMinSec.h"
@@ -9,8 +8,7 @@
 
 CPPUNIT_TEST_SUITE_REGISTRATION(DistanceTest);
 
-void DistanceTest::testDistance()
-{
+void DistanceTest::testDistance() {
     LocationDegMinSec c1(38, 50, 0, -104, 49, 0);
     LocationDegMinSec c2(39, 45, 0, -104, 59, 0);
 
