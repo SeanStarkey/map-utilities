@@ -7,6 +7,7 @@
 #include "DistanceTest.h"
 #include "LocationTest.h"
 #include "KMLTest.h"
+#include "GPXTest.h"
 
 int main()
 {

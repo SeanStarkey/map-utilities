@@ -21,6 +21,11 @@ INCLUDES  = src/Location.h \
 						src/KMLStyle.h \
 						src/KMLPoint.h \
 						src/KMLUnknownElementException.h \
+						src/GPX.h \
+						src/GPXtrk.h \
+						src/GPXtrkseg.h \
+						src/GPXtrkpt.h \
+						src/GPXUnknownElementException.h \
 						src/pugixml.hpp \
 						src/pugiconfig.hpp
 
