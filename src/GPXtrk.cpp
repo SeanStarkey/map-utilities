@@ -13,6 +13,12 @@ GPXtrk::GPXtrk(const pugi::xml_node trkNode) {
         if (str == "name") {
             name = n.child_value();
         }
+        else if (str == "desc") {
+        }
+        else if (str == "number") {
+        }
+        else if (str == "topografix:color") {
+        }
         else if (str == "trkseg") {
             trksegs.push_back(new GPXtrkseg(n));
         }

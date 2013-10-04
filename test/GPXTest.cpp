@@ -11,3 +11,15 @@ void GPXTest::testParseGarminActivity() {
 
     GPX gpx = GPX(f);
 }
+
+void GPXTest::testParseFellsLoop() {
+    std::ifstream f("test/fells_loop.gpx");
+
+    GPX gpx = GPX(f);
+}
+
+void GPXTest::testParseBlueHills() {
+    std::ifstream f("test/blue_hills.gpx");
+
+    GPX gpx = GPX(f);
+}

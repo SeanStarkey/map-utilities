@@ -2,6 +2,7 @@
 #define GPX_H
 
 #include <fstream>
+#include <vector>
 #include "GPXtrk.h"
 
 class GPX {
@@ -9,7 +10,7 @@ public:
     GPX(std::ifstream& file);
 
 private:
-    GPXtrk* trk;
+    std::vector<GPXtrk*> trks;
 };
 
 #endif

@@ -41,6 +41,14 @@ GPXtrkpt::GPXtrkpt(const pugi::xml_node trkptNode) {
             t.tm_sec = std::stoi(timeSplit[2]);
             time = mktime(&t);
         }
+        else if (str == "cmt") {
+        }
+        else if (str == "sym") {
+        }
+        else if (str == "name") {
+        }
+        else if (str == "desc") {
+        }
         else {
             throw GPXUnknownElementException(std::string("trkpt: ") + str);
         }

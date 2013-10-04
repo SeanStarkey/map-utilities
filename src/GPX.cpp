@@ -23,13 +23,7 @@ GPX::GPX(std::ifstream& file) {
         }
         else if (str == "xsi:schemaLocation") {
         }
-        else if (str == "xmlns") {
-        }
-        else if (str == "xmlns:gpxtpx") {
-        }
-        else if (str == "xmlns:gpxx") {
-        }
-        else if (str == "xmlns:xsi") {
+        else if (str.substr(0, 5) == "xmlns") {
         }
         else {
             throw GPXUnknownElementException(std::string("GPX(A): ") + str);
@@ -40,8 +34,34 @@ GPX::GPX(std::ifstream& file) {
         std::string str(n.name());
         if (str == "metadata") {
         }
+        else if (str == "name") {
+        }
+        else if (str == "desc") {
+        }
+        else if (str == "author") {
+        }
+        else if (str == "email") {
+        }
+        else if (str == "url") {
+        }
+        else if (str == "urlname") {
+        }
+        else if (str == "keywords") {
+        }
         else if (str == "trk") {
-            trk = new GPXtrk(n);
+            trks.push_back(new GPXtrk(n));
+        }
+        else if (str == "time") {
+        }
+        else if (str == "bounds") {
+        }
+        else if (str == "wpt") {
+        }
+        else if (str == "rte") {
+        }
+        else if (str == "topografix:active_point") {
+        }
+        else if (str == "topografix:map") {
         }
         else {
             throw GPXUnknownElementException(std::string("GPX: ") + str);
