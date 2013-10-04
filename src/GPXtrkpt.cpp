@@ -8,21 +8,23 @@
 
 GPXtrkpt::GPXtrkpt(const pugi::xml_node trkptNode) {
     for (pugi::xml_attribute a: trkptNode.attributes()) {
-        if (std::string(a.name()) == "lon") {
+        std::string str(a.name());
+        if (str == "lon") {
             longitude = std::strtod(a.value(), 0);
         }
-        else if (std::string(a.name()) == "lat") {
+        else if (str == "lat") {
             latitude = std::strtod(a.value(), 0);
         }
         else {
-            throw GPXUnknownElementException(std::string("trkpt(A): ") + a.name());
+            throw GPXUnknownElementException(std::string("trkpt(A): ") + str);
         }
     }
     for (pugi::xml_node n: trkptNode.children()) {
-        if (std::string(n.name()) == "ele") {
+        std::string str(n.name());
+        if (str == "ele") {
             elevation = std::strtod(n.child_value(), 0);
         }
-        else if (std::string(n.name()) == "time") {
+        else if (str == "time") {
             struct tm t;
             std::string timeString = n.child_value();
             std::vector<std::string> firstSplit;
@@ -40,7 +42,7 @@ GPXtrkpt::GPXtrkpt(const pugi::xml_node trkptNode) {
             time = mktime(&t);
         }
         else {
-            throw GPXUnknownElementException(std::string("trkpt: ") + n.name());
+            throw GPXUnknownElementException(std::string("trkpt: ") + str);
         }
     }
 }

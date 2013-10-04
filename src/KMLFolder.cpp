@@ -3,24 +3,30 @@
 #include "KMLUnknownElementException.h"
 
 KMLFolder::KMLFolder(const pugi::xml_node folderNode) {
+    for (pugi::xml_attribute a: folderNode.attributes()) {
+        std::string str(a.name());
+        throw KMLUnknownElementException(std::string("Folder(A): ") + str);
+    }
+
     for (pugi::xml_node n: folderNode.children()) {
-        if (std::string(n.name()) == "name") {
+        std::string str(n.name());
+        if (str == "name") {
             name = n.child_value();
         }
-        else if (std::string(n.name()) == "description") {
+        else if (str == "description") {
             description = n.child_value();
         }
-        else if (std::string(n.name()) == "Folder") {
+        else if (str == "Folder") {
             folders.push_back(new KMLFolder(n));
         }
-        else if (std::string(n.name()) == "Placemark") {
+        else if (str == "Placemark") {
             placemarks.push_back(new KMLPlacemark(n));
         }
-        else if (std::string(n.name()) == "Style") {
+        else if (str == "Style") {
             style = new KMLStyle(n);
         }
         else {
-            throw KMLUnknownElementException(std::string("Folder: ") + n.name());
+            throw KMLUnknownElementException(std::string("Folder: ") + str);
         }
     }
 }

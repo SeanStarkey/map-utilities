@@ -3,25 +3,31 @@
 #include "KMLUnknownElementException.h"
 
 KMLPlacemark::KMLPlacemark(const pugi::xml_node placemarkNode) {
+    for (pugi::xml_attribute a: placemarkNode.attributes()) {
+        std::string str(a.name());
+        throw KMLUnknownElementException(std::string("Placemark(A): ") + str);
+    }
+
     for (pugi::xml_node n: placemarkNode.children()) {
-        if (std::string(n.name()) == "name") {
+        std::string str(n.name());
+        if (str == "name") {
             name = n.child_value();
         }
-        else if (std::string(n.name()) == "description") {
+        else if (str == "description") {
             description = n.child_value();
         }
-        else if (std::string(n.name()) == "TimeSpan") {
+        else if (str == "TimeSpan") {
         }
-        else if (std::string(n.name()) == "Style") {
+        else if (str == "Style") {
             style = new KMLStyle(n);
         }
-        else if (std::string(n.name()) == "Point") {
+        else if (str == "Point") {
             point = new KMLPoint(n);
         }
-        else if (std::string(n.name()) == "LineString") {
+        else if (str == "LineString") {
         }
         else {
-            throw KMLUnknownElementException(std::string("Placemark: ") + n.name());
+            throw KMLUnknownElementException(std::string("Placemark: ") + str);
         }
     }
 }

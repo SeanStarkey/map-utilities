@@ -3,21 +3,27 @@
 #include "KMLUnknownElementException.h"
 
 KMLStyle::KMLStyle(const pugi::xml_node styleNode) {
+    for (pugi::xml_attribute a: styleNode.attributes()) {
+        std::string str(a.name());
+        throw KMLUnknownElementException(std::string("Style(A): ") + str);
+    }
+
     for (pugi::xml_node n: styleNode.children()) {
-        if (std::string(n.name()) == "BallonStyle") {
+        std::string str(n.name());
+        if (str == "BallonStyle") {
         }
-        else if (std::string(n.name()) == "IconStyle") {
+        else if (str == "IconStyle") {
         }
-        else if (std::string(n.name()) == "LableStyle") {
+        else if (str == "LableStyle") {
         }
-        else if (std::string(n.name()) == "LineStyle") {
+        else if (str == "LineStyle") {
         }
-        else if (std::string(n.name()) == "ListStyle") {
+        else if (str == "ListStyle") {
         }
-        else if (std::string(n.name()) == "PolyStyle") {
+        else if (str == "PolyStyle") {
         }
         else {
-            throw KMLUnknownElementException(std::string("Style: ") + n.name());
+            throw KMLUnknownElementException(std::string("Style: ") + str);
         }
     }
 }
