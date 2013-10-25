@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <vector>
+#include <memory>
 #include "KMLFolder.h"
 #include "KMLDocument.h"
 
@@ -11,8 +12,8 @@ public:
     KML(std::ifstream& file);
 
 private:
-    std::vector<KMLFolder*> folders;
-    std::vector<KMLDocument*> documents;
+    std::vector<std::unique_ptr<KMLFolder>> folders;
+    std::vector<std::unique_ptr<KMLDocument>> documents;
 };
 
 #endif

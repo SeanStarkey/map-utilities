@@ -11,7 +11,7 @@ GPXtrkseg::GPXtrkseg(const pugi::xml_node trksegNode) {
     for (pugi::xml_node n: trksegNode.children()) {
         std::string str(n.name());
         if (str == "trkpt") {
-            trkpts.push_back(new GPXtrkpt(n));
+            trkpts.push_back(std::unique_ptr<GPXtrkpt>(new GPXtrkpt(n)));
         }
         else {
             throw GPXUnknownElementException(std::string("trkseg: ") + str);

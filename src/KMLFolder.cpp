@@ -17,13 +17,13 @@ KMLFolder::KMLFolder(const pugi::xml_node folderNode) {
             description = n.child_value();
         }
         else if (str == "Folder") {
-            folders.push_back(new KMLFolder(n));
+            folders.push_back(std::unique_ptr<KMLFolder>(new KMLFolder(n)));
         }
         else if (str == "Placemark") {
-            placemarks.push_back(new KMLPlacemark(n));
+            placemarks.push_back(std::unique_ptr<KMLPlacemark>(new KMLPlacemark(n)));
         }
         else if (str == "Style") {
-            style = new KMLStyle(n);
+            style = std::unique_ptr<KMLStyle>(new KMLStyle(n));
         }
         else {
             throw KMLUnknownElementException(std::string("Folder: ") + str);

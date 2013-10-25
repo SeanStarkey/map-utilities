@@ -19,10 +19,10 @@ KMLPlacemark::KMLPlacemark(const pugi::xml_node placemarkNode) {
         else if (str == "TimeSpan") {
         }
         else if (str == "Style") {
-            style = new KMLStyle(n);
+            style = std::unique_ptr<KMLStyle>(new KMLStyle(n));
         }
         else if (str == "Point") {
-            point = new KMLPoint(n);
+            point = std::unique_ptr<KMLPoint>(new KMLPoint(n));
         }
         else if (str == "LineString") {
         }

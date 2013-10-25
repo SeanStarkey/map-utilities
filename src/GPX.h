@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <vector>
+#include <memory>
 #include "GPXtrk.h"
 
 class GPX {
@@ -10,7 +11,7 @@ public:
     GPX(std::ifstream& file);
 
 private:
-    std::vector<GPXtrk*> trks;
+    std::vector<std::unique_ptr<GPXtrk>> trks;
 };
 
 #endif

@@ -49,7 +49,7 @@ GPX::GPX(std::ifstream& file) {
         else if (str == "keywords") {
         }
         else if (str == "trk") {
-            trks.push_back(new GPXtrk(n));
+            trks.push_back(std::unique_ptr<GPXtrk>(new GPXtrk(n)));
         }
         else if (str == "time") {
         }

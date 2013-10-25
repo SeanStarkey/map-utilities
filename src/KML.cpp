@@ -31,10 +31,10 @@ KML::KML(std::ifstream& file) {
     for (pugi::xml_node n: kmlNode.children()) {
         std::string str(n.name());
         if (str == "Folder") {
-            folders.push_back(new KMLFolder(n));
+            folders.push_back(std::unique_ptr<KMLFolder>(new KMLFolder(n)));
         }
         else if (str == "Document") {
-            documents.push_back(new KMLDocument(n));
+            documents.push_back(std::unique_ptr<KMLDocument>(new KMLDocument(n)));
         }
         else {
             throw KMLUnknownElementException(std::string("KML: ") + str);

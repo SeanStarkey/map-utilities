@@ -20,7 +20,7 @@ GPXtrk::GPXtrk(const pugi::xml_node trkNode) {
         else if (str == "topografix:color") {
         }
         else if (str == "trkseg") {
-            trksegs.push_back(new GPXtrkseg(n));
+            trksegs.push_back(std::unique_ptr<GPXtrkseg>(new GPXtrkseg(n)));
         }
         else {
             throw GPXUnknownElementException(std::string("trk: ") + str);

@@ -2,6 +2,7 @@
 #define GPXTRK_H
 
 #include <vector>
+#include <memory>
 #include "pugixml.hpp"
 #include "GPXtrkseg.h"
 
@@ -11,7 +12,7 @@ public:
 
 private:
     std::string name;
-    std::vector<GPXtrkseg*> trksegs;
+    std::vector<std::unique_ptr<GPXtrkseg>> trksegs;
 };
 
 #endif

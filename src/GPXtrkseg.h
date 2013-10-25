@@ -2,6 +2,7 @@
 #define GPXTRKSEG_H
 
 #include <vector>
+#include <memory>
 #include "pugixml.hpp"
 #include "GPXtrkpt.h"
 
@@ -10,7 +11,7 @@ public:
     GPXtrkseg(const pugi::xml_node trksegNode);
 
 private:
-    std::vector<GPXtrkpt*> trkpts;
+    std::vector<std::unique_ptr<GPXtrkpt>> trkpts;
 };
 
 #endif

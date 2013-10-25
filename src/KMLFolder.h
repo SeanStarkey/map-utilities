@@ -2,6 +2,7 @@
 #define KMLFOLDER_H
 
 #include <vector>
+#include <memory>
 #include "KMLPlacemark.h"
 #include "KMLStyle.h"
 #include "pugixml.hpp"
@@ -13,9 +14,9 @@ public:
 private:
     std::string name;
     std::string description;
-    std::vector<KMLFolder*> folders;
-    std::vector<KMLPlacemark*> placemarks;
-    KMLStyle* style;
+    std::vector<std::unique_ptr<KMLFolder>> folders;
+    std::vector<std::unique_ptr<KMLPlacemark>> placemarks;
+    std::unique_ptr<KMLStyle> style;
 };
 
 #endif
