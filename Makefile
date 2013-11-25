@@ -27,7 +27,8 @@ INCLUDES  = src/Location.h \
 						src/GPXtrkpt.h \
 						src/GPXUnknownElementException.h \
 						src/pugixml.hpp \
-						src/pugiconfig.hpp
+						src/pugiconfig.hpp \
+						src/IMG.h
 
 # Library to create
 LIBNAME   = libmaputil.a

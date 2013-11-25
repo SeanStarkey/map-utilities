@@ -4,10 +4,6 @@
 #include <cppunit/CompilerOutputter.h>
 
 #include <iostream>
-#include "DistanceTest.h"
-#include "LocationTest.h"
-#include "KMLTest.h"
-#include "GPXTest.h"
 
 int main()
 {
